@@ -6,15 +6,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
 public class RegularsTest {
-    private Regulars regular;
+    private static Regulars regular;
 
     @BeforeAll
-    public void init() {
+    public static void init() {
         regular = new Regulars();
     }
 
     @AfterAll
-    public void tearDown(){regular=null;}
+    public static void tearDown(){regular=null;}
 
     @Test
     public void checkTrueIP(){
@@ -22,9 +22,10 @@ public class RegularsTest {
         Assert.assertEquals(true, regular.checkIP("255.255.255.0"));
         Assert.assertEquals(true, regular.checkIP("78.0.89.8"));
         Assert.assertEquals(true, regular.checkIP("0.0.0.1"));
-        Assert.assertEquals(true, regular.checkIP("234.70.9.34"));
+        Assert.assertEquals(true, regular.checkIP("23.70.9.34"));
         Assert.assertEquals(true, regular.checkIP("254.0.0.255"));
     }
+    @Test
     public void checkFalseIP(){
         Assert.assertEquals(false, regular.checkIP("256.256.255.265"));
         Assert.assertEquals(false, regular.checkIP("0.0.123.iu"));
