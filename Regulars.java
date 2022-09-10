@@ -4,4 +4,7 @@ public class Regulars {
     public Boolean checkIP(String ip){
         return ip.matches("^([01]?\\d\\d?|2[0-4]|25[0-5])\\.([01]?\\d\\d?|2[0-4]|25[0-5])\\.([01]?\\d\\d?|2[0-4]|25[0-5])\\.([01]?\\d\\d?|2[0-4]|25[0-5])$");
     }
+    public Boolean checkGUID(String guid){
+        return guid.matches("^([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}$");
+    }
 }
