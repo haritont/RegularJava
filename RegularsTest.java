@@ -70,4 +70,22 @@ public class RegularsTest {
         Assert.assertEquals(false, regular.checkURL("http://-t.com"));
         Assert.assertEquals(false, regular.checkURL("example.com"));
     }
+    @Test
+    public void checkTruePassword(){
+        Assert.assertEquals(true, regular.checkPassword("Dr1000000"));
+        Assert.assertEquals(true, regular.checkPassword("C001_Pass"));
+        Assert.assertEquals(true, regular.checkPassword("SupperPass1"));
+        Assert.assertEquals(true, regular.checkPassword("Cool1_yes"));
+        Assert.assertEquals(true, regular.checkPassword("Sdgdgg66fgvh"));
+        Assert.assertEquals(true, regular.checkPassword("78897979EEEFdxgfccy6ytyy"));
+    }
+    @Test
+    public void checkFalsePassword(){
+        Assert.assertEquals(false, regular.checkPassword("Dr1"));
+        Assert.assertEquals(false, regular.checkPassword("Cool_pass"));
+        Assert.assertEquals(false, regular.checkPassword("C001"));
+        Assert.assertEquals(false, regular.checkPassword("Cool...no"));
+        Assert.assertEquals(false, regular.checkPassword("pppppppppppp"));
+        Assert.assertEquals(false, regular.checkPassword("4pP4pP4"));
+    }
 }
