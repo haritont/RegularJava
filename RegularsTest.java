@@ -49,7 +49,25 @@ public class RegularsTest {
         Assert.assertEquals(false, regular.checkGUID("c1af4cf5-674d-4e7a-adbe-adff-401e0163cff5"));
         Assert.assertEquals(false, regular.checkGUID("1f9959f1_0094_4cfa_a229_27b6f953c4fe"));
         Assert.assertEquals(false, regular.checkGUID("3148898f-0fea-403e-a106769f23ab6266"));
-        Assert.assertEquals(false, regular.checkGUID("fFecf9c3,44CB,4a44,b2f8,9b23F0c75d2e"));
+        Assert.assertEquals(false, regular.checkGUID("fPecf9c3-44CB-4l44-b2f8-9b23F0c75d2e"));
         Assert.assertEquals(false, regular.checkGUID("85a2ccdc-1101-4c4d-77f9518ba2e1"));
+    }
+    @Test
+    public void checkTrueURL(){
+        Assert.assertEquals(true, regular.checkURL("http://www.example.com"));
+        Assert.assertEquals(true, regular.checkURL("http://example.com"));
+        Assert.assertEquals(true, regular.checkURL("http://www.ex.com"));
+        Assert.assertEquals(true, regular.checkURL("https://www.example.com"));
+        Assert.assertEquals(true, regular.checkURL("https://example.com"));
+        Assert.assertEquals(true, regular.checkURL("https://www.ex.com"));
+    }
+    @Test
+    public void checkFalseURL(){
+        Assert.assertEquals(false, regular.checkURL("htyy//www.example.com"));
+        Assert.assertEquals(false, regular.checkURL("http://a.com"));
+        Assert.assertEquals(false, regular.checkURL("http://www.e-x-a-m-p-l-e.com"));
+        Assert.assertEquals(false, regular.checkURL("http://www.e_x_a_m_p_l_e.com"));
+        Assert.assertEquals(false, regular.checkURL("http://www.e.com"));
+        Assert.assertEquals(false, regular.checkURL("example.com"));
     }
 }
