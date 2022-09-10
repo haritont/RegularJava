@@ -58,16 +58,16 @@ public class RegularsTest {
         Assert.assertEquals(true, regular.checkURL("http://example.com"));
         Assert.assertEquals(true, regular.checkURL("http://www.ex.com"));
         Assert.assertEquals(true, regular.checkURL("https://www.example.com"));
-        Assert.assertEquals(true, regular.checkURL("https://example.com"));
+        Assert.assertEquals(true, regular.checkURL("https://ex-ample.com"));
         Assert.assertEquals(true, regular.checkURL("https://www.ex.com"));
     }
     @Test
     public void checkFalseURL(){
-        Assert.assertEquals(false, regular.checkURL("htyy//www.example.com"));
+        Assert.assertEquals(false, regular.checkURL("http//www.exa mple.com"));
         Assert.assertEquals(false, regular.checkURL("http://a.com"));
-        Assert.assertEquals(false, regular.checkURL("http://www.e-x-a-m-p-l-e.com"));
+        Assert.assertEquals(false, regular.checkURL("http://www.example-.com"));
         Assert.assertEquals(false, regular.checkURL("http://www.e_x_a_m_p_l_e.com"));
-        Assert.assertEquals(false, regular.checkURL("http://www.e.com"));
+        Assert.assertEquals(false, regular.checkURL("http://-t.com"));
         Assert.assertEquals(false, regular.checkURL("example.com"));
     }
 }
